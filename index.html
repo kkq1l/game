@@ -10,14 +10,15 @@
     </style>
 </head>
 <body>
-<div id="time" style="color:blue;font: bold  400% serif;padding-left:50px;float:right;margin-right:1%;"></div>
+<div id="score" style="color:blue;font: bold  400% serif;padding-left:50px;float:left;margin-left:0%;">0</div>
+<div id="time" style="color:blue;font: bold  400% serif;padding-left:50px;float:right;margin-right:2%;"></div>
 <div style="display: flex;align-items: center;justify-content: center;margin-top:18%;">
 <div id="step1" STYLE="color:blue;font: bold  900% serif;padding-left:50px;float:left;"></div><div id="step2" STYLE="color:blue;font: bold  900% serif;padding-left:10px;float:left;"></div><div id="step3" STYLE="color:blue;font: bold  900% serif;padding-left:10px;float:left;"></div>
 </div>
 <script>
 var timeElem = document.getElementById('time'), 
         countdown = new Date(),
-        responseTime = new Date(Date.now() + (500*10)); // таймер 10 секунд
+        responseTime = new Date(Date.now() + (400*10)); // таймер 10 секунд
  
 function startTime() {
   countdown.setTime(responseTime - Date.now());
@@ -28,6 +29,8 @@ function startTime() {
   document.getElementById("step1").innerHTML = "S"; document.getElementById("step1").style.color = "red"; 
   document.getElementById("step2").innerHTML = "T"; document.getElementById("step2").style.color = "red"; 
   document.getElementById("step3").innerHTML = "P"; document.getElementById("step3").style.color = "red"; 
+  document.getElementById("time").style.color = "red"; 
+  document.getElementById("score").style.color = "red"; 
   step=10;
  } 
 }
@@ -45,6 +48,9 @@ step1=arr[rand1];
 step2=arr[rand2];
 step3=arr[rand3];
 step=1;
+score=0;
+combo=1;
+foll=0;
 
 
     switch(step1){
@@ -290,270 +296,302 @@ step=1;
 			document.getElementById("step3").innerHTML = "M";
 				break;
     }	
-	
+
 function moveRect(e){
     switch(e.keyCode){
          case 81:  // Буква Q
+		 if (step<5){
 		 if (step==1 && step1==81) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==81) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==81) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1; score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} else {
+			score=score-100;
+			combo=1;
+			document.getElementById("score").innerHTML = score;
+			}
+			}
 				break;
          case 87:  // Буква W
+		 if (step<5){
 		 if (step==1 && step1==87) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1;  combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==87) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==87) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 69:  // Буква E
+		 if (step<5){
 		 if (step==1 && step1==69) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==69) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==69) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 82:  // Буква R
+		 if (step<5){
 		 if (step==1 && step1==82) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==82) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==82) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 84:  // Буква T
+		 if (step<5){
 		 if (step==1 && step1==84) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==84) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==84) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 89:  // Буква Y
+		 if (step<5){
 		 if (step==1 && step1==89) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==89) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==89) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 85:  // Буква U
+		 if (step<5){
 		 if (step==1 && step1==85) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==85) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==85) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 73:  // Буква I
+		 if (step<5){
 		 if (step==1 && step1==73) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==73) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==73) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 79:  // Буква O
+		 if (step<5){
 		 if (step==1 && step1==79) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==79) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==79) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 80:  // Буква P
+		 if (step<5){
 		 if (step==1 && step1==80) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==80) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==80) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 65:  // Буква A
+		 if (step<5){
 		 if (step==1 && step1==65) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==65) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==65) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 83:  // Буква S
+		 if (step<5){
 		 if (step==1 && step1==83) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==83) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==83) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 68:  // Буква D
+		 if (step<5){
 		 if (step==1 && step1==68) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==68) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==68) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 70:  // Буква F
+		 if (step<5){
 		 if (step==1 && step1==70) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==70) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==70) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 71:  // Буква G
+		 if (step<5){
 		 if (step==1 && step1==71) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==71) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==71) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 72:  // Буква H
+		 if (step<5){
 		 if (step==1 && step1==72) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==72) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==72) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 74:  // Буква J
+		 if (step<5){
 		 if (step==1 && step1==74) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==74) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==74) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 75:  // Буква K
+		 if (step<5){
 		 if (step==1 && step1==75) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==75) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==75) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 76:  // Буква L
+		 if (step<5){
 		 if (step==1 && step1==76) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==76) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==76) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 90:  // Буква Z
+		 if (step<5){
 		 if (step==1 && step1==90) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==90) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==90) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 88:  // Буква X
+		 if (step<5){
 		 if (step==1 && step1==88) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==88) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==88) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 67:  // Буква C
+		 if (step<5){
 		 if (step==1 && step1==67) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==67) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==67) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 86:  // Буква V
+		 if (step<5){
 		 if (step==1 && step1==86) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==86) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==86) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 66:  // Буква B
+		 if (step<5){
 		 if (step==1 && step1==66) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==66) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==66) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 78:  // Буква N
+		 if (step<5){
 		 if (step==1 && step1==78) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==78) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==78) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 77:  // Буква M
+		 if (step<5){
 		 if (step==1 && step1==77) {
-			document.getElementById("step1").style.color = "green"; step=step+1;
+			document.getElementById("step1").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==2 && step2==77) {
-			document.getElementById("step2").style.color = "green"; step=step+1;
+			document.getElementById("step2").style.color = "green"; step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
 			} else if (step==3 && step3==77) {
 			document.getElementById("step3").style.color = "green"; 
-			step=step+1;
-			} 
+			step=step+1; combo=combo+1;score=score+(100*combo); document.getElementById("score").innerHTML = score;
+			} }
 				break;
          case 32:  // Пробел
+		 if (step<5){
 		if(step == 4){
 		responseTime = new Date(Date.now() + (400*10));
 		rand1= Math.floor(Math.random() * 26);
@@ -812,10 +850,11 @@ function moveRect(e){
 				break;
     }	
 		}
+		}
 				break;
     }
 }
- 
+
 addEventListener("keydown", moveRect);
 </script>
 </body>
