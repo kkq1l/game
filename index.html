@@ -7,25 +7,45 @@
         margin:0;
         overflow:hidden;
     }
-    #blueRect{
-        width:100px;
-        height:100px;
-        background-color:blue;
-    }
     </style>
 </head>
 <body>
+<div id="time" style="color:blue;font: bold  400% serif;padding-left:50px;float:right;margin-right:1%;"></div>
+<div style="display: flex;align-items: center;justify-content: center;margin-top:18%;">
 <div id="step1" STYLE="color:blue;font: bold  900% serif;padding-left:50px;float:left;"></div><div id="step2" STYLE="color:blue;font: bold  900% serif;padding-left:10px;float:left;"></div><div id="step3" STYLE="color:blue;font: bold  900% serif;padding-left:10px;float:left;"></div>
+</div>
 <script>
+var timeElem = document.getElementById('time'), 
+        countdown = new Date(),
+        responseTime = new Date(Date.now() + (500*10)); // таймер 10 секунд
+ 
+function startTime() {
+  countdown.setTime(responseTime - Date.now());
+  timeElem.innerHTML = countdown.getUTCHours() + ':' + countdown.getUTCMinutes() + ':' + countdown.getUTCSeconds();
+  if(countdown.getUTCHours() > 0 || countdown.getUTCMinutes() > 0 || countdown.getUTCSeconds() > 0) 
+  requestAnimationFrame(startTime);
+  else {
+  document.getElementById("step1").innerHTML = "S"; document.getElementById("step1").style.color = "red"; 
+  document.getElementById("step2").innerHTML = "T"; document.getElementById("step2").style.color = "red"; 
+  document.getElementById("step3").innerHTML = "P"; document.getElementById("step3").style.color = "red"; 
+  step=10;
+ } 
+}
+requestAnimationFrame(startTime);
+
 var arr = [81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 65, 83, 68, 70, 71, 72, 74, 75, 76, 90, 88, 67, 86, 66, 78, 77];
-var rand1 = Math.floor(Math.random() * arr.length);
-var rand2 = Math.floor(Math.random() * arr.length);
-var rand3 = Math.floor(Math.random() * arr.length);
+var rand1;
+var rand2;
+var rand3;
+rand1= Math.floor(Math.random() * 26);
+rand2= Math.floor(Math.random() * 26);
+rand3= Math.floor(Math.random() * 26);
+
 step1=arr[rand1];
 step2=arr[rand2];
 step3=arr[rand3];
 step=1;
-step1=77;
+
 
     switch(step1){
          case 81:  // Буква Q
@@ -280,6 +300,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==81) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 87:  // Буква W
@@ -289,6 +310,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==87) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 69:  // Буква E
@@ -298,6 +320,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==69) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 82:  // Буква R
@@ -307,6 +330,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==82) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 84:  // Буква T
@@ -316,6 +340,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==84) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 89:  // Буква Y
@@ -325,6 +350,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==89) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 85:  // Буква U
@@ -334,6 +360,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==85) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 73:  // Буква I
@@ -343,6 +370,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==73) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 79:  // Буква O
@@ -352,6 +380,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==79) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 80:  // Буква P
@@ -361,6 +390,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==80) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 65:  // Буква A
@@ -370,6 +400,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==65) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 83:  // Буква S
@@ -379,6 +410,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==83) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 68:  // Буква D
@@ -388,6 +420,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==68) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 70:  // Буква F
@@ -397,6 +430,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==70) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 71:  // Буква G
@@ -406,6 +440,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==71) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 72:  // Буква H
@@ -415,6 +450,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==72) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 74:  // Буква J
@@ -424,6 +460,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==74) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 75:  // Буква K
@@ -433,6 +470,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==75) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 76:  // Буква L
@@ -442,6 +480,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==76) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 90:  // Буква Z
@@ -451,6 +490,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==90) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 88:  // Буква X
@@ -460,6 +500,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==88) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 67:  // Буква C
@@ -469,6 +510,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==67) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 86:  // Буква V
@@ -478,6 +520,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==86) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 66:  // Буква B
@@ -487,6 +530,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==66) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 78:  // Буква N
@@ -496,6 +540,7 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==78) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
 				break;
          case 77:  // Буква M
@@ -505,7 +550,268 @@ function moveRect(e){
 			document.getElementById("step2").style.color = "green"; step=step+1;
 			} else if (step==3 && step3==77) {
 			document.getElementById("step3").style.color = "green"; 
+			step=step+1;
 			} 
+				break;
+         case 32:  // Пробел
+		if(step == 4){
+		responseTime = new Date(Date.now() + (400*10));
+		rand1= Math.floor(Math.random() * 26);
+		rand2= Math.floor(Math.random() * 26);
+		rand3= Math.floor(Math.random() * 26);
+
+		step1=arr[rand1];
+		step2=arr[rand2];
+		step3=arr[rand3];
+		step=1;
+		document.getElementById("step1").style.color = "blue";
+		document.getElementById("step2").style.color = "blue";
+		document.getElementById("step3").style.color = "blue";
+		
+		switch(step1){
+         case 81:  // Буква Q
+			document.getElementById("step1").innerHTML = "Q";
+				break;
+         case 87:  // Буква W
+			document.getElementById("step1").innerHTML = "W";
+				break;
+         case 69:  // Буква E
+			document.getElementById("step1").innerHTML = "E";
+				break;
+         case 82:  // Буква R
+			document.getElementById("step1").innerHTML = "R";
+				break;
+         case 84:  // Буква T
+			document.getElementById("step1").innerHTML = "T";
+				break;
+         case 89:  // Буква Y
+			document.getElementById("step1").innerHTML = "Y";
+				break;
+         case 85:  // Буква U
+			document.getElementById("step1").innerHTML = "U";
+				break;
+         case 73:  // Буква I
+			document.getElementById("step1").innerHTML = "I";
+				break;
+         case 79:  // Буква O
+			document.getElementById("step1").innerHTML = "O";
+				break;
+         case 80:  // Буква P
+			document.getElementById("step1").innerHTML = "P";
+				break;
+         case 65:  // Буква A
+			document.getElementById("step1").innerHTML = "A";
+				break;
+         case 83:  // Буква S
+			document.getElementById("step1").innerHTML = "S";
+				break;
+         case 68:  // Буква D
+			document.getElementById("step1").innerHTML = "D";
+				break;
+         case 70:  // Буква F
+			document.getElementById("step1").innerHTML = "F";
+				break;
+         case 71:  // Буква G
+			document.getElementById("step1").innerHTML = "G";
+				break;
+         case 72:  // Буква H
+			document.getElementById("step1").innerHTML = "H";
+				break;
+         case 74:  // Буква J
+			document.getElementById("step1").innerHTML = "J";
+				break;
+         case 75:  // Буква K
+			document.getElementById("step1").innerHTML = "K";
+				break;
+         case 76:  // Буква L
+			document.getElementById("step1").innerHTML = "L";
+				break;
+         case 90:  // Буква Z
+			document.getElementById("step1").innerHTML = "Z";
+				break;
+         case 88:  // Буква X
+			document.getElementById("step1").innerHTML = "X";
+				break;
+         case 67:  // Буква C
+			document.getElementById("step1").innerHTML = "C";
+				break;
+         case 86:  // Буква V
+			document.getElementById("step1").innerHTML = "V";
+				break;
+         case 66:  // Буква B
+			document.getElementById("step1").innerHTML = "B";
+				break;
+         case 78:  // Буква N
+			document.getElementById("step1").innerHTML = "N";
+				break;
+         case 77:  // Буква M
+			document.getElementById("step1").innerHTML = "M";
+				break;
+    }
+
+    switch(step2){
+         case 81:  // Буква Q
+			document.getElementById("step2").innerHTML = "Q";
+				break;
+         case 87:  // Буква W
+			document.getElementById("step2").innerHTML = "W";
+				break;
+         case 69:  // Буква E
+			document.getElementById("step2").innerHTML = "E";
+				break;
+         case 82:  // Буква R
+			document.getElementById("step2").innerHTML = "R";
+				break;
+         case 84:  // Буква T
+			document.getElementById("step2").innerHTML = "T";
+				break;
+         case 89:  // Буква Y
+			document.getElementById("step2").innerHTML = "Y";
+				break;
+         case 85:  // Буква U
+			document.getElementById("step2").innerHTML = "U";
+				break;
+         case 73:  // Буква I
+			document.getElementById("step2").innerHTML = "I";
+				break;
+         case 79:  // Буква O
+			document.getElementById("step2").innerHTML = "O";
+				break;
+         case 80:  // Буква P
+			document.getElementById("step2").innerHTML = "P";
+				break;
+         case 65:  // Буква A
+			document.getElementById("step2").innerHTML = "A";
+				break;
+         case 83:  // Буква S
+			document.getElementById("step2").innerHTML = "S";
+				break;
+         case 68:  // Буква D
+			document.getElementById("step2").innerHTML = "D";
+				break;
+         case 70:  // Буква F
+			document.getElementById("step2").innerHTML = "F";
+				break;
+         case 71:  // Буква G
+			document.getElementById("step2").innerHTML = "G";
+				break;
+         case 72:  // Буква H
+			document.getElementById("step2").innerHTML = "H";
+				break;
+         case 74:  // Буква J
+			document.getElementById("step2").innerHTML = "J";
+				break;
+         case 75:  // Буква K
+			document.getElementById("step2").innerHTML = "K";
+				break;
+         case 76:  // Буква L
+			document.getElementById("step2").innerHTML = "L";
+				break;
+         case 90:  // Буква Z
+			document.getElementById("step2").innerHTML = "Z";
+				break;
+         case 88:  // Буква X
+			document.getElementById("step2").innerHTML = "X";
+				break;
+         case 67:  // Буква C
+			document.getElementById("step2").innerHTML = "C";
+				break;
+         case 86:  // Буква V
+			document.getElementById("step2").innerHTML = "V";
+				break;
+         case 66:  // Буква B
+			document.getElementById("step2").innerHTML = "B";
+				break;
+         case 78:  // Буква N
+			document.getElementById("step2").innerHTML = "N";
+				break;
+         case 77:  // Буква M
+			document.getElementById("step2").innerHTML = "M";
+				break;
+    }	
+
+
+    switch(step3){
+         case 81:  // Буква Q
+			document.getElementById("step3").innerHTML = "Q";
+				break;
+         case 87:  // Буква W
+			document.getElementById("step3").innerHTML = "W";
+				break;
+         case 69:  // Буква E
+			document.getElementById("step3").innerHTML = "E";
+				break;
+         case 82:  // Буква R
+			document.getElementById("step3").innerHTML = "R";
+				break;
+         case 84:  // Буква T
+			document.getElementById("step3").innerHTML = "T";
+				break;
+         case 89:  // Буква Y
+			document.getElementById("step3").innerHTML = "Y";
+				break;
+         case 85:  // Буква U
+			document.getElementById("step3").innerHTML = "U";
+				break;
+         case 73:  // Буква I
+			document.getElementById("step3").innerHTML = "I";
+				break;
+         case 79:  // Буква O
+			document.getElementById("step3").innerHTML = "O";
+				break;
+         case 80:  // Буква P
+			document.getElementById("step3").innerHTML = "P";
+				break;
+         case 65:  // Буква A
+			document.getElementById("step3").innerHTML = "A";
+				break;
+         case 83:  // Буква S
+			document.getElementById("step3").innerHTML = "S";
+				break;
+         case 68:  // Буква D
+			document.getElementById("step3").innerHTML = "D";
+				break;
+         case 70:  // Буква F
+			document.getElementById("step3").innerHTML = "F";
+				break;
+         case 71:  // Буква G
+			document.getElementById("step3").innerHTML = "G";
+				break;
+         case 72:  // Буква H
+			document.getElementById("step3").innerHTML = "H";
+				break;
+         case 74:  // Буква J
+			document.getElementById("step3").innerHTML = "J";
+				break;
+         case 75:  // Буква K
+			document.getElementById("step3").innerHTML = "K";
+				break;
+         case 76:  // Буква L
+			document.getElementById("step3").innerHTML = "L";
+				break;
+         case 90:  // Буква Z
+			document.getElementById("step3").innerHTML = "Z";
+				break;
+         case 88:  // Буква X
+			document.getElementById("step3").innerHTML = "X";
+				break;
+         case 67:  // Буква C
+			document.getElementById("step3").innerHTML = "C";
+				break;
+         case 86:  // Буква V
+			document.getElementById("step3").innerHTML = "V";
+				break;
+         case 66:  // Буква B
+			document.getElementById("step3").innerHTML = "B";
+				break;
+         case 78:  // Буква N
+			document.getElementById("step3").innerHTML = "N";
+				break;
+         case 77:  // Буква M
+			document.getElementById("step3").innerHTML = "M";
+				break;
+    }	
+		}
 				break;
     }
 }
