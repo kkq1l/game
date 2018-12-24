@@ -1,0 +1,1 @@
+﻿<?php$host='localhost';$database='id8249321_te18st';$user='id8249321_te18st';$password='z!Rxvu%8wcEuQM5#pcwp';$link=mysqli_connect($host,$user,$password,$database);$nick = $_POST['name']; ?>

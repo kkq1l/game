@@ -1,29 +1,3 @@
-<html>
-<head>
-    <meta charset="utf-8" />
-	<title>UHWeb</title>
-	<script type="text/javascript" src="game.js"></script>
-    <style>
-    html, body{
-        margin:0;
-        overflow:hidden;
-    }
-    </style>
-</head>
-<body>
-<div id="score" style="color:blue;font: bold  400% serif;padding-left:50px;float:left;margin-left:0%;">0</div>
-<div id="time" style="color:blue;font: bold  400% serif;padding-left:50px;float:right;margin-right:2%;"></div>
-<div style="display: flex;align-items: center;justify-content: center;margin-top:18%;">
-<div id="step1" STYLE="color:blue;font: bold  900% serif;padding-left:50px;float:left;"></div><div id="step2" STYLE="color:blue;font: bold  900% serif;padding-left:10px;float:left;"></div><div id="step3" STYLE="color:blue;font: bold  900% serif;padding-left:10px;float:left;"></div>
-</div>
-<div style="display: flex;align-items:center; justify-content: center;margin-top:0%;">
-<form method="post" action="conf.php">
-<input type="text" name="nick" placeholder="Ваш ник" style="margin-left:40px;"> <input type="submit" name="submit" value="Сохранить"> <br>
-<input type="text" id="scoreee" name="score" style="margin-left:40px;">
-</form>
-</div>
-</body>
-<script>
 var timeElem = document.getElementById('time'), 
         countdown = new Date(),
         responseTime = new Date(Date.now() + (400*10)); // таймер 10 секунд
@@ -40,7 +14,6 @@ function startTime() {
   document.getElementById("time").style.color = "red"; 
   document.getElementById("score").style.color = "red"; 
   step=10;
-  document.getElementById("scoreee").value = score;
  } 
 }
 requestAnimationFrame(startTime);
@@ -865,5 +838,3 @@ function moveRect(e){
 }
 
 addEventListener("keydown", moveRect);
-</script>
-</html>
